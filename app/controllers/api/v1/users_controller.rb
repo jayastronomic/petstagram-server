@@ -6,7 +6,7 @@ module Api
                 @user = User.new(user_params)
                 if @user.save
                   login!
-                  render json: { status: :created, user: @user}
+                  render json: { status: 'SUCCESS', user: @user, logged_in: true }
                 else 
                   render json: { status: 500, errors: @user.errors.full_messages}
                 end
@@ -15,7 +15,7 @@ module Api
             private
             
             def user_params
-                paramas.require(:user).permit(
+                params.require(:user).permit(
                     :username,
                     :full_name,
                     :email,
