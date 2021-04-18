@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     delete '/logout', to: 'sessions#destroy'
     get '/logged_in', to: 'sessions#is_logged_in?'
     resources :users, only: [:create, :show]
-    resources :posts, only: [:index]
+    resources :posts, only: [:index, :create]
     end
   end
 end
