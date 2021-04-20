@@ -15,7 +15,7 @@ module Api
               
             def is_logged_in?
                 if logged_in? && current_user
-                  render json: { logged_in: true, user: current_user }
+                  render json: current_user
                 else
                   render json: { logged_in: false, user: {}, message: 'no such user' }
                 end
